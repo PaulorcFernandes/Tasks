@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]=taskForm (submit)="onSubmit()">
+    <ion-item lines="none">
+      <ion-icon
+        name="newspaper-outline"
+        color="primary"
+        slot="start"
+      ></ion-icon>
+      <ion-input
+        type="text"
+        placeholder="Título"
+        autofocus="true"
+        inputmode="text"
+        formControlName="title"
+      ></ion-input>
+      <ion-toggle
+        *ngIf="taskId"
+        slot="end"
+        color="primary"
+        formControlName="done"
+      ></ion-toggle>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-icon
+        name="reader"
+        color="primary"
+        slot="start"
+      ></ion-icon>
+      <ion-input
+        type="text"
+        placeholder="Resumo da atividade"
+        autofocus="true"
+        inputmode="text"
+        formControlName="resume"
+      ></ion-input>
+    </ion-item>
+    <ion-button
+      expand="full"
+      type="submit"
+      [disabled]= taskForm.invalid
+    >
+      Salvar
+    </ion-button>
+  
+  </form>
+
+</ion-content>

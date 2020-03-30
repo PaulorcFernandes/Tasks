@@ -1,0 +1,67 @@
+
+<ion-card>
+  <ion-item lines="none">
+    <ion-label slot="start"> {{ task.title }}</ion-label>
+    <ion-button slot="end" fill="clear" (click)="menuTask(task)">
+      <ion-icon name="ellipsis-vertical"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-card-content>
+      <ion-row>
+       <ion-label><strong>Resumo:</strong> {{task.resume}}</ion-label>
+      </ion-row>
+      <ion-row>
+          <ion-label><strong>Status</strong></ion-label>
+          <ion-toggle 
+            color="primary" 
+            [checked]="task.done"
+            (ionChange)="done.emit(task)"
+            (click)="$event.stopPropagation()"
+          ></ion-toggle>
+      </ion-row>
+    
+  </ion-card-content>
+  
+</ion-card>
+
+
+
+
+<!-- <ion-item-sliding #sliding>
+
+  
+
+  <ion-item (click)="update.emit(task)">
+    <ion-label>
+      {{ task.title }}
+    </ion-label>
+    <br>
+     <p>
+       Resumo:
+     </p>
+     <ion-toggle 
+      slot="end" 
+      color="primary" 
+      [checked]="task.done"
+      (ionChange)="done.emit(task)"
+      (click)="$event.stopPropagation()"
+    ></ion-toggle>
+  </ion-item>
+  <ion-item-options side="start">
+    <ion-item-option 
+    color="danger" 
+    (click)="delete.emit(task); sliding.close()"
+    >
+      <ion-icon 
+        slot="icon-only" 
+        name="trash"
+      ></ion-icon>
+    </ion-item-option>
+    <ion-item-option (click)="update.emit(task); sliding.close()">
+      <ion-icon 
+        slot="icon-only" 
+        name="create"
+      ></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+</ion-item-sliding> -->
