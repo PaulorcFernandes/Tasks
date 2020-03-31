@@ -1,8 +1,19 @@
 <ion-header>
     <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-toggle>
+                <ion-button>
+                    <ion-icon
+                        slot="icon-only"
+                        name="menu"
+                    ></ion-icon>
+                </ion-button>
+            </ion-menu-toggle>
+        </ion-buttons>
         <ion-title>Lista de atividades</ion-title>
     </ion-toolbar>
 </ion-header>
+
 
 <ion-content padding>
     <ion-list *ngIf="(tasks$ | async) as tasks">
@@ -12,20 +23,26 @@
                 [task]="task"
                 (update)="onUpdate($event)"
                 (delete)="onDelete($event)"
+                (done)="onDone($event)"
             ></app-task-item>
         </ng-container>
         <ng-template #noTasks>
-            <ion-item lines="none"> Nenhuma tarefa cadastrada...</ion-item>
+            <ion-item lines="none">Nenhuma tarefa cadastrada...</ion-item>
         </ng-template>
     </ion-list>
+
 
     <ion-fab
         vertical="bottom"
         horizontal="end"
         slot="fixed"
     >
-        <ion-fab-button routerLink="/tasks-list/create" routerDirection="forward" >
+        <ion-fab-button
+            routerLink="/tasks-list/create"
+            routerDirection="forward"
+        >
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>
+    <notifier-container></notifier-container>
 </ion-content>
