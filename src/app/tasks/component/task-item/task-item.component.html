@@ -6,18 +6,18 @@
       <ion-icon name="ellipsis-vertical"></ion-icon>
     </ion-button>
   </ion-item>
-  <ion-card-content>
+  <ion-card-content padding>
       <ion-row>
        <ion-label><strong>Resumo:</strong> {{task.resume}}</ion-label>
       </ion-row>
-      <ion-row>
+      <ion-row >
           <ion-label><strong>Status</strong></ion-label>
           <ion-toggle 
             color="primary" 
             [checked]="task.done"
             (ionChange)="done.emit(task)"
             (click)="$event.stopPropagation()"
-          ></ion-toggle>
+          ></ion-toggle> 
       </ion-row>
     
   </ion-card-content>

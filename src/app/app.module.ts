@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { environment } from '../environments/environment';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -48,7 +50,12 @@ const customNotifierOptions: NotifierOptions = {
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [CoreModule, AppRoutingModule, NotifierModule.withConfig(customNotifierOptions)],
+  imports: [
+    CoreModule, 
+    AppRoutingModule, 
+    NotifierModule.withConfig(customNotifierOptions), 
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
