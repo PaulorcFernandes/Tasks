@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NotifierModule, NotifierOptions } from "angular-notifier";
+import { MenuToggleComponent } from './components/menu-toggle/menu-toggle.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -47,14 +48,17 @@ const customNotifierOptions: NotifierOptions = {
 
 
 @NgModule({
+  declarations: [ MenuToggleComponent ],
   imports: [
-    NotifierModule.withConfig(customNotifierOptions)
+    NotifierModule.withConfig(customNotifierOptions),
+    IonicModule
   ],
   exports: [
     NotifierModule,
     CommonModule,
     ReactiveFormsModule,
-    IonicModule
+    IonicModule,
+    MenuToggleComponent
   ],
 })
 export class SharedModule { }
