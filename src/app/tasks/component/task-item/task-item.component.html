@@ -1,28 +1,37 @@
-
 <ion-card>
-  <ion-item lines="none">
-    <ion-label slot="start"> {{ task.title }}</ion-label>
-    <ion-button slot="end" fill="clear" (click)="menuTask(task)">
-      <ion-icon name="ellipsis-vertical"></ion-icon>
-    </ion-button>
-  </ion-item>
-  <ion-card-content padding>
-      <ion-row>
-       <ion-label><strong>Resumo:</strong> {{task.resume}}</ion-label>
-      </ion-row>
-      <ion-row >
-          <ion-label><strong>Status</strong></ion-label>
-          <ion-toggle 
-            color="primary" 
-            [checked]="task.done"
-            (ionChange)="done.emit(task)"
-            (click)="$event.stopPropagation()"
-          ></ion-toggle> 
-      </ion-row>
-    
-  </ion-card-content>
-  
+    <ion-item
+        lines="none"
+        color="primary"
+    >
+        <ion-icon
+            slot="start"
+            name="radio-button-on-outline"
+        ></ion-icon>
+        <ion-title slot="start">{{ task.title}}</ion-title>
+        <ion-button
+            slot="end"
+            fill="clear"
+            (click)="menuTask(task)"
+        >
+            <ion-icon name="ellipsis-vertical"></ion-icon>
+        </ion-button>
+    </ion-item>
+    <ion-card-content padding>
+        <ion-item lines="none">
+            <p>{{task.resume}}</p>
+            <ion-toggle
+                slot="end"
+                color="success"
+                [checked]="task.done"
+                (ionChange)="done.emit(task)"
+                (click)="$event.stopPropagation()"
+            ></ion-toggle>
+        </ion-item>
+    </ion-card-content>
+
+
 </ion-card>
+
 
 
 

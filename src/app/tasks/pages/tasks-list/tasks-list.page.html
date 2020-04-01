@@ -1,10 +1,17 @@
 <ion-header>
     <ion-toolbar color="primary">
-            <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
-        <ion-title>Lista de atividades</ion-title>
-            <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+        <app-menu-toggle
+            slot="start"
+            menu="main-menu"
+        ></app-menu-toggle>
+        <ion-title slot="start">Lista de atividades</ion-title>
+        <app-logout-button
+            slot="end"
+            menu="main-menu"
+        ></app-logout-button>
     </ion-toolbar>
 </ion-header>
+
 
 
 <ion-content padding>
@@ -22,6 +29,7 @@
             <ion-item lines="none">Nenhuma tarefa cadastrada...</ion-item>
         </ng-template>
     </ion-list>
+
 
 
     <ion-fab
