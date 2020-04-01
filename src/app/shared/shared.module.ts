@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NotifierModule, NotifierOptions } from "angular-notifier";
 import { MenuToggleComponent } from './components/menu-toggle/menu-toggle.component';
+import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -48,7 +49,7 @@ const customNotifierOptions: NotifierOptions = {
 
 
 @NgModule({
-  declarations: [ MenuToggleComponent ],
+  declarations: [ LogoutButtonComponent ,MenuToggleComponent ],
   imports: [
     NotifierModule.withConfig(customNotifierOptions),
     IonicModule
@@ -58,7 +59,8 @@ const customNotifierOptions: NotifierOptions = {
     CommonModule,
     ReactiveFormsModule,
     IonicModule,
-    MenuToggleComponent
+    MenuToggleComponent,
+    LogoutButtonComponent
   ],
 })
 export class SharedModule { }
